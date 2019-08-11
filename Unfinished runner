@@ -1,0 +1,27 @@
+//완주하지 못한 선수 provided by programmers
+//소요시간 : 약 24시간
+//혼자해결? no
+//참고사이트 : https://dreamhollic.tistory.com/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B45-%EC%99%84%EC%A3%BC%ED%95%98%EC%A7%80-%EB%AA%BB%ED%95%9C-%EC%84%A0%EC%88%98-JAVA
+
+
+class Solution {
+    public String solution(String[] participant, String[] completion) {
+        String answer = "";
+        
+        for(int i=0; i<participant.length; i++){ 
+            boolean signal = true;
+            for(int j=0; j<completion.length; j++){
+                if(participant[i].equals(completion[j])){
+                    completion[j] = null;
+                    signal = false;
+                    break;
+                }
+            }
+            if(signal){
+                answer = participant[i];
+                break;
+            }
+        }
+        return answer;
+    }
+}
